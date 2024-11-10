@@ -27,4 +27,18 @@ class FirebaseServices{
     }
     context.read<HotelProvider>().addHotel(hotels: hotels);
   }
+
+
+  static addSignUpData( {required String email,required String name,required String mobileNo,required String address}){
+    CollectionReference userCollectionReference = FirebaseFirestore.instance.collection('users');
+
+    userCollectionReference.add({
+      "email":email,
+      "name":name,
+      "address":address,
+      "mobile_no":mobileNo
+    });
+
+
+  }
 }
